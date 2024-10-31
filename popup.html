@@ -8,8 +8,39 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>SOQL List Formatter</h1>
+            <div class="title-row">
+                <h1>SOQL List Formatter</h1>
+                <button id="infoButton" class="info-button" aria-label="Informazioni">
+                    <span class="icon">ℹ️</span>
+                </button>
+            </div>
             <p class="subtitle">Formatta facilmente le tue liste per query SOQL</p>
+        </div>
+
+        <!-- Info Panel -->
+        <div id="infoPanel" class="info-panel">
+            <div class="info-content">
+                <h2>Come usare SOQL List Formatter</h2>
+                <ul>
+                    <li><strong>Cosa fa:</strong> Converte un elenco di valori in un formato compatibile con le query SOQL di Salesforce.</li>
+                    <li><strong>Quando usarlo:</strong> Perfetto quando devi filtrare record in Salesforce usando la clausola IN.</li>
+                    <li><strong>Come usarlo:</strong>
+                        <ol>
+                            <li>Incolla la tua lista di valori (uno per riga)</li>
+                            <li>Clicca 'Formatta' o usa Ctrl+Enter</li>
+                            <li>Copia il risultato (Ctrl+C)</li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="example-section">
+                    <p><strong>Esempio:</strong></p>
+                    <pre>Da:           Diventa:
+Account1       'Account1',
+Account2  →    'Account2',
+Account3       'Account3'</pre>
+                </div>
+                <button id="closeInfo" class="close-button">Chiudi</button>
+            </div>
         </div>
         
         <div class="input-section">

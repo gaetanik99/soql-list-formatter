@@ -1,6 +1,8 @@
 document.getElementById('formatButton').addEventListener('click', formatText);
 document.getElementById('copyButton').addEventListener('click', copyText);
 document.getElementById('clearButton').addEventListener('click', clearText);
+document.getElementById('infoButton').addEventListener('click', showInfo);
+document.getElementById('closeInfo').addEventListener('click', hideInfo);
 
 function formatText() {
     const inputText = document.getElementById('inputText').value.trim();
@@ -37,24 +39,28 @@ function clearText() {
     document.getElementById('outputText').value = '';
 }
 
+function showInfo() {
+    document.getElementById('infoPanel').classList.add('show');
+}
+
+function hideInfo() {
+    document.getElementById('infoPanel').classList.remove('show');
+}
+
 function showToast(message) {
-    // Rimuovi toast esistenti
     const existingToast = document.querySelector('.toast');
     if (existingToast) {
         existingToast.remove();
     }
 
-    // Crea e mostra il nuovo toast
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.textContent = message;
     document.body.appendChild(toast);
 
-    // Forza un reflow per far funzionare l'animazione
     toast.offsetHeight;
     toast.classList.add('show');
 
-    // Rimuovi il toast dopo 2 secondi
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => {
@@ -63,13 +69,17 @@ function showToast(message) {
     }, 2000);
 }
 
-// Aggiungi supporto per la tastiera
+// Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key === 'Enter') {
         formatText();
     } else if (e.ctrlKey && e.key === 'c' && document.activeElement.id !== 'inputText') {
         copyText();
     } else if (e.key === 'Escape') {
-        clearText();
+        if (document.getElementById('infoPanel').classList.contains('show')) {
+            hideInfo();
+        } else {
+            clearText();
+        }
     }
 });
