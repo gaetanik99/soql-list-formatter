@@ -1,21 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOQL List Formatter</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>SOQL List Formatter</h1>
-        <textarea id="inputText" placeholder="Enter the list of values..."></textarea>
-        <div class="buttons">
-            <button id="formatButton">Format Text</button>
-            <button id="copyButton">Copy Text</button>
-            <button id="clearButton">Clear</button>
+        <div class="header">
+            <h1>SOQL List Formatter</h1>
+            <p class="subtitle">Formatta facilmente le tue liste per query SOQL</p>
         </div>
-        <textarea id="outputText" readonly placeholder="Formatted Text..."></textarea>
+        
+        <div class="input-section">
+            <label for="inputText">Inserisci i valori (uno per riga):</label>
+            <textarea id="inputText" placeholder="Esempio:
+valore1
+valore2
+valore3"></textarea>
+        </div>
+
+        <div class="buttons">
+            <button id="formatButton" class="primary">
+                <span class="icon">⚡</span>
+                Formatta
+            </button>
+            <button id="copyButton" class="success">
+                <span class="icon">📋</span>
+                Copia
+            </button>
+            <button id="clearButton" class="secondary">
+                <span class="icon">🗑️</span>
+                Pulisci
+            </button>
+        </div>
+
+        <div class="output-section">
+            <label for="outputText">Risultato formattato:</label>
+            <textarea id="outputText" readonly></textarea>
+        </div>
     </div>
     <script src="popup.js"></script>
 </body>
