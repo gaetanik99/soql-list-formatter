@@ -3,7 +3,10 @@
   "name": "SOQL List Formatter",
   "version": "1.0",
   "description": "Format a list of values for Salesforce SOQL queries.",
-  "permissions": ["clipboardWrite"],
+  "permissions": [
+    "clipboardWrite",
+    "storage"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

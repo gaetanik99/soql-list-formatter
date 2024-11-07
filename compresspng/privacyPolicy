@@ -1,0 +1,91 @@
+# Privacy Policy for SOQL List Formatter
+
+Last updated: November 07, 2024
+
+## 1. Introduction
+
+This Privacy Policy explains how the SOQL List Formatter Chrome extension ("we", "our", or "the extension") handles user data. We are committed to protecting your privacy and ensuring transparency about our data practices.
+
+## 2. Data Collection and Usage
+
+The SOQL List Formatter extension:
+- Does NOT collect any personal information
+- Does NOT track user behavior
+- Does NOT transmit any data to external servers
+- Does NOT store query content or formatting results
+- Only stores the user's language preference locally on their device
+
+### 2.1 Local Storage
+The only data we store is:
+- Language preference (stored locally using Chrome's storage API)
+- Purpose: To remember the user's preferred interface language
+- Storage location: Local browser storage only
+- Duration: Until the user uninstalls the extension or clears browser data
+
+## 3. Data Processing
+
+All data processing:
+- Occurs entirely within the user's browser
+- Is temporary (limited to the current session)
+- Is performed locally without external connections
+
+### 3.1 Clipboard Access
+The extension requests clipboard write access solely to:
+- Copy formatted SOQL text to the clipboard when the user clicks the "Copy" button
+- No clipboard content is read, stored, or transmitted
+
+## 4. Third-Party Services
+
+The SOQL List Formatter:
+- Does NOT integrate with any third-party services
+- Does NOT use external APIs
+- Does NOT include any tracking or analytics tools
+- Does NOT serve advertisements
+
+## 5. User Rights and Control
+
+Users can:
+- Clear their language preference by clearing browser data
+- Uninstall the extension at any time to remove all stored data
+- Use the extension without providing any personal information
+
+## 6. Security
+
+We ensure security by:
+- Processing all data locally in the browser
+- Not collecting or transmitting any user data
+- Not storing sensitive information
+- Not requiring user accounts or authentication
+
+## 7. Changes to Privacy Policy
+
+If we make any changes to this privacy policy:
+- Users will be notified through extension updates
+- Changes will be reflected in the "Last updated" date
+- Significant changes will be communicated via the Chrome Web Store listing
+
+## 8. Contact
+
+For privacy-related questions or concerns, please:
+- Submit an issue on our GitHub repository
+- Contact us through the Chrome Web Store support channel
+
+## 9. Compliance
+
+This extension complies with:
+- Chrome Web Store Developer Program Policies
+- General Data Protection Regulation (GDPR)
+- California Consumer Privacy Act (CCPA)
+- All applicable privacy laws and regulations
+
+## 10. Permissions Explanation
+
+The extension requests only essential permissions:
+1. `clipboardWrite`: Required to copy formatted text to clipboard
+2. `storage`: Required to save language preference locally
+
+No other permissions are requested or required.
+
+---
+
+By using the SOQL List Formatter extension, you acknowledge that you have read and understood this Privacy Policy.

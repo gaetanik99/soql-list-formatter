@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SOQL List Formatter</title>
     <meta charset="UTF-8">
-    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>SOQL List Formatter</h1>
-            <p class="subtitle">Formatta facilmente le tue liste per query SOQL</p>
-            <button id="infoButton" class="info-button">
-                <span class="icon">📖</span>
-                Come funziona?
-            </button>
+            <h1 id="title">SOQL List Formatter</h1>
+            <p class="subtitle" id="subtitle">Easily format your lists for SOQL queries</p>
+            <div class="header-buttons">
+                <button id="infoButton" class="info-button">
+                    <span class="icon">📖</span>
+                    <span id="infoButtonText">How it works?</span>
+                </button>
+                <select id="languageSelector" class="language-selector">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                </select>
+            </div>
         </div>
 
-        <!-- Info Panel -->
         <div id="infoPanel" class="info-panel">
             <div class="info-content">
-                <h2>Come usare SOQL List Formatter</h2>
+                <h2 id="howToUseTitle">How to use SOQL List Formatter</h2>
                 <ul>
-                    <li><strong>Cosa fa:</strong> Converte un elenco di valori in un formato compatibile con le query SOQL di Salesforce.</li>
-                    <li><strong>Quando usarlo:</strong> Perfetto quando devi filtrare record in Salesforce usando la clausola IN.</li>
-                    <li><strong>Come usarlo:</strong>
-                        <ol>
-                            <li>Incolla la tua lista di valori (uno per riga)</li>
-                            <li>Clicca 'Formatta' o usa Ctrl+Enter</li>
-                            <li>Copia il risultato (Ctrl+C)</li>
-                        </ol>
+                    <li><strong id="whatItDoes">What it does:</strong> <span id="whatItDoesDesc"></span></li>
+                    <li><strong id="whenToUse">When to use it:</strong> <span id="whenToUseDesc"></span></li>
+                    <li><strong id="howToUseStepsTitle">How to use it:</strong>
+                        <ol id="howToUseSteps"></ol>
                     </li>
                 </ul>
+
                 <div class="example-section">
-                    <p><strong>Esempio:</strong></p>
-                    <pre>Da:           Diventa:
+                    <p><strong id="exampleTitle">Example:</strong></p>
+                    <pre>
+<span id="fromLabel">From:</span>           <span id="becomesLabel">Becomes:</span>
 Account1       'Account1',
 Account2  →    'Account2',
 Account3       'Account3'</pre>
                 </div>
-                <button id="closeInfo" class="close-button">Chiudi</button>
+
+                <button id="closeInfo" class="close-button"><span id="closeText">Close</span></button>
             </div>
         </div>
-        
+
         <div class="input-section">
-            <label for="inputText">Inserisci i valori (uno per riga):</label>
-            <textarea id="inputText" placeholder="Esempio:
-valore1
-valore2
-valore3"></textarea>
+            <label for="inputText" id="inputLabel">Enter values (one per line):</label>
+            <textarea id="inputText" spellcheck="false"></textarea>
         </div>
 
         <div class="buttons">
             <button id="formatButton" class="primary">
                 <span class="icon">⚡</span>
-                Formatta
+                <span id="formatButtonText">Format</span>
             </button>
             <button id="copyButton" class="success">
                 <span class="icon">📋</span>
-                Copia
+                <span id="copyButtonText">Copy</span>
             </button>
             <button id="clearButton" class="secondary">
                 <span class="icon">🗑️</span>
-                Pulisci
+                <span id="clearButtonText">Clear</span>
             </button>
         </div>
 
         <div class="output-section">
-            <label for="outputText">Risultato formattato:</label>
+            <label for="outputText" id="outputLabel">Formatted result:</label>
             <textarea id="outputText" readonly></textarea>
         </div>
     </div>
-    <script src="popup.js"></script>
+    <script type="module" src="locales.js"></script>
+    <script type="module" src="popup.js"></script>
 </body>
 </html>

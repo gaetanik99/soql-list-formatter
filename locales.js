@@ -1,0 +1,117 @@
+// locales.js
+const locales = {
+    en: {
+      title: "SOQL List Formatter",
+      subtitle: "Easily format your lists for SOQL queries",
+      infoButton: "How it works?",
+      howToUse: "How to use SOQL List Formatter",
+      whatItDoes: "What it does:",
+      whatItDoesDesc: "Converts a list of values into a format compatible with Salesforce SOQL queries.",
+      whenToUse: "When to use it:",
+      whenToUseDesc: "Perfect when you need to filter records in Salesforce using the IN clause.",
+      howToUseTitle: "How to use it:",
+      howToUseSteps: [
+        "Paste your list of values (one per line)",
+        "Click 'Format' or use Ctrl+Enter",
+        "Copy the result (Ctrl+C)"
+      ],
+      example: "Example:",
+      from: "From:",
+      becomes: "Becomes:",
+      close: "Close",
+      inputLabel: "Enter values (one per line):",
+      formatButton: "Format",
+      copyButton: "Copy",
+      clearButton: "Clear",
+      outputLabel: "Formatted result:",
+      noInputText: "Please enter text to format",
+      noCopyText: "No text to copy",
+      copiedText: "Text copied!"
+    },
+    it: {
+      title: "SOQL List Formatter",
+      subtitle: "Formatta facilmente le tue liste per query SOQL",
+      infoButton: "Come funziona?",
+      howToUse: "Come usare SOQL List Formatter",
+      whatItDoes: "Cosa fa:",
+      whatItDoesDesc: "Converte un elenco di valori in un formato compatibile con le query SOQL di Salesforce.",
+      whenToUse: "Quando usarlo:",
+      whenToUseDesc: "Perfetto quando devi filtrare record in Salesforce usando la clausola IN.",
+      howToUseTitle: "Come usarlo:",
+      howToUseSteps: [
+        "Incolla la tua lista di valori (uno per riga)",
+        "Clicca 'Formatta' o usa Ctrl+Enter",
+        "Copia il risultato (Ctrl+C)"
+      ],
+      example: "Esempio:",
+      from: "Da:",
+      becomes: "Diventa:",
+      close: "Chiudi",
+      inputLabel: "Inserisci i valori (uno per riga):",
+      formatButton: "Formatta",
+      copyButton: "Copia",
+      clearButton: "Pulisci",
+      outputLabel: "Risultato formattato:",
+      noInputText: "Inserisci del testo da formattare",
+      noCopyText: "Nessun testo da copiare",
+      copiedText: "Testo copiato!"
+    },
+    es: {
+      title: "SOQL List Formatter",
+      subtitle: "Formatea fácilmente tus listas para consultas SOQL",
+      infoButton: "¿Cómo funciona?",
+      howToUse: "Cómo usar SOQL List Formatter",
+      whatItDoes: "Qué hace:",
+      whatItDoesDesc: "Convierte una lista de valores en un formato compatible con las consultas SOQL de Salesforce.",
+      whenToUse: "Cuándo usarlo:",
+      whenToUseDesc: "Perfecto cuando necesitas filtrar registros en Salesforce usando la cláusula IN.",
+      howToUseTitle: "Cómo usarlo:",
+      howToUseSteps: [
+        "Pega tu lista de valores (uno por línea)",
+        "Haz clic en 'Formatear' o usa Ctrl+Enter",
+        "Copia el resultado (Ctrl+C)"
+      ],
+      example: "Ejemplo:",
+      from: "De:",
+      becomes: "Se convierte en:",
+      close: "Cerrar",
+      inputLabel: "Ingresa los valores (uno por línea):",
+      formatButton: "Formatear",
+      copyButton: "Copiar",
+      clearButton: "Limpiar",
+      outputLabel: "Resultado formateado:",
+      noInputText: "Ingresa texto para formatear",
+      noCopyText: "No hay texto para copiar",
+      copiedText: "¡Texto copiado!"
+    },
+    fr: {
+      title: "SOQL List Formatter",
+      subtitle: "Formatez facilement vos listes pour les requêtes SOQL",
+      infoButton: "Comment ça marche ?",
+      howToUse: "Comment utiliser SOQL List Formatter",
+      whatItDoes: "Ce qu'il fait :",
+      whatItDoesDesc: "Convertit une liste de valeurs dans un format compatible avec les requêtes SOQL de Salesforce.",
+      whenToUse: "Quand l'utiliser :",
+      whenToUseDesc: "Parfait lorsque vous devez filtrer des enregistrements dans Salesforce en utilisant la clause IN.",
+      howToUseTitle: "Comment l'utiliser :",
+      howToUseSteps: [
+        "Collez votre liste de valeurs (une par ligne)",
+        "Cliquez sur 'Formater' ou utilisez Ctrl+Enter",
+        "Copiez le résultat (Ctrl+C)"
+      ],
+      example: "Exemple :",
+      from: "De :",
+      becomes: "Devient :",
+      close: "Fermer",
+      inputLabel: "Entrez les valeurs (une par ligne) :",
+      formatButton: "Formater",
+      copyButton: "Copier",
+      clearButton: "Effacer",
+      outputLabel: "Résultat formaté :",
+      noInputText: "Veuillez entrer du texte à formater",
+      noCopyText: "Pas de texte à copier",
+      copiedText: "Texte copié !"
+    }
+  };
+  
+  export default locales;
