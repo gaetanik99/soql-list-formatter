@@ -61,10 +61,6 @@ Account3       'Account3'</pre>
                 <span class="icon">🔍</span>
                 <span id="checkDuplicatesText"></span>
             </button>
-            <button id="copyButton" class="success">
-                <span class="icon">📋</span>
-                <span id="copyButtonText">Copy</span>
-            </button>
             <button id="clearButton" class="secondary">
                 <span class="icon">🗑️</span>
                 <span id="clearButtonText">Clear</span>
@@ -72,7 +68,12 @@ Account3       'Account3'</pre>
         </div>
 
         <div class="output-section">
-            <label for="outputText" id="outputLabel">Formatted result:</label>
+            <div class="output-header">
+                <label for="outputText" id="outputLabel">Formatted result:</label>
+                <button id="copyButton" class="success icon-only" title="Copy">
+                    <span class="icon">📋</span>
+                </button>
+            </div>
             <textarea id="outputText" readonly></textarea>
         </div>
     </div>

@@ -31,7 +31,9 @@ const locales = {
       checkDuplicatesButton: "Remove Duplicates",
       noDuplicates: "No duplicates found",
       removeDuplicates: "Duplicates found. Would you like to remove them?",
-      duplicatesRemoved: "Duplicates removed"
+      duplicatesRemoved: "Duplicates removed",
+      ok: "OK",
+      cancel: "Cancel"
     },
     it: {
       title: "SOQL List Formatter",
@@ -64,7 +66,9 @@ const locales = {
       checkDuplicatesButton: "Rimuovi Duplicati",
       noDuplicates: "Nessun duplicato trovato",
       removeDuplicates: "Trovati dei duplicati. Vuoi rimuoverli?",
-      duplicatesRemoved: "Duplicati rimossi"
+      duplicatesRemoved: "Duplicati rimossi",
+      ok: "OK",
+      cancel: "Annulla"
     },
     es: {
       title: "SOQL List Formatter",
@@ -97,7 +101,9 @@ const locales = {
       checkDuplicatesButton: "Eliminar Duplicados",
       noDuplicates: "No se encontraron duplicados",
       removeDuplicates: "Se encontraron duplicados. ¿Quieres eliminarlos?",
-      duplicatesRemoved: "Duplicados eliminados"
+      duplicatesRemoved: "Duplicados eliminados",
+      ok: "OK",
+      cancel: "Cancelar"
     },
     fr: {
       title: "SOQL List Formatter",
@@ -130,7 +136,9 @@ const locales = {
       checkDuplicatesButton: "Supprimer Doublons",
       noDuplicates: "Aucun doublon trouvé",
       removeDuplicates: "Des doublons ont été trouvés. Voulez-vous les supprimer ?",
-      duplicatesRemoved: "Doublons supprimés"
+      duplicatesRemoved: "Doublons supprimés",
+      ok: "OK",
+      cancel: "Annuler"
     }
   };
   

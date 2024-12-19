@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 16px;
-    width: 400px;
+    width: 450px;
     height: 550px;
     box-sizing: border-box;
     background-color: #f8f9fa;
@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 16px;
+    gap: 12px;
     max-width: 100%;
     position: relative;
     overflow: hidden;
@@ -231,63 +231,72 @@ h1 {
     background-color: #1557b0;
 }
 
-.input-section, .output-section {
+.input-section {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    min-height: 0;
-    flex: 1;
 }
 
-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #202124;
+.input-section textarea {
+    height: 120px;
 }
 
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 12px;
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    font-size: 14px;
-    line-height: 1.5;
-    resize: none;
-    font-family: 'Courier New', monospace;
-    background-color: white;
-    box-sizing: border-box;
+.output-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
 }
 
-textarea:focus {
-    outline: none;
-    border-color: #1a73e8;
+.output-section textarea {
+    flex-grow: 1;
 }
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    margin: 8px 0;
+    margin: 4px 0;
     flex-shrink: 0;
+    width: 100%;
 }
 
 button {
-    padding: 8px 16px;
+    padding: 8px 10px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     transition: all 0.2s ease;
     justify-content: center;
     width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    text-align: center;
+    line-height: 1.2;
 }
 
-.icon {
-    font-size: 16px;
+button .icon {
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+button span:not(.icon) {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.icon-only {
+    min-height: auto;
+    padding: 8px;
+    width: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
 
 .primary {
@@ -352,4 +361,106 @@ button {
 
 .toast.show {
     opacity: 1;
+}
+
+/* Stili per il popup di conferma */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-title {
+    font-size: 16px;
+    color: #1a73e8;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.popup-button {
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.popup-button.confirm {
+    background-color: #1a73e8;
+    color: white;
+}
+
+.popup-button.confirm:hover {
+    background-color: #1557b0;
+}
+
+.popup-button.cancel {
+    background-color: #f1f3f4;
+    color: #3c4043;
+}
+
+.popup-button.cancel:hover {
+    background-color: #e8eaed;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #202124;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none;
+    font-family: 'Courier New', monospace;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.output-header label {
+    margin: 0;
 }

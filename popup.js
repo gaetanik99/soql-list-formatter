@@ -2,34 +2,29 @@ import locales from './locales.js';
 
 let currentLocale = 'en';
 
-function updateTexts() {
-    const texts = locales[currentLocale];
-    
-    // Update all text content
-    document.getElementById('title').textContent = texts.title;
-    document.getElementById('subtitle').textContent = texts.subtitle;
-    document.getElementById('infoButtonText').textContent = texts.infoButton;
-    document.getElementById('howToUseTitle').textContent = texts.howToUse;
-    document.getElementById('whatItDoes').textContent = texts.whatItDoes;
-    document.getElementById('whatItDoesDesc').textContent = texts.whatItDoesDesc;
-    document.getElementById('whenToUse').textContent = texts.whenToUse;
-    document.getElementById('whenToUseDesc').textContent = texts.whenToUseDesc;
-    document.getElementById('howToUseStepsTitle').textContent = texts.howToUseTitle;
-    document.getElementById('exampleTitle').textContent = texts.example;
-    document.getElementById('fromLabel').textContent = texts.from;
-    document.getElementById('becomesLabel').textContent = texts.becomes;
-    document.getElementById('closeText').textContent = texts.close;
-    document.getElementById('inputLabel').textContent = texts.inputLabel;
-    document.getElementById('formatButtonText').textContent = texts.formatButton;
-    document.getElementById('copyButtonText').textContent = texts.copyButton;
-    document.getElementById('clearButtonText').textContent = texts.clearButton;
-    document.getElementById('outputLabel').textContent = texts.outputLabel;
-    document.getElementById('checkDuplicatesText').textContent = texts.checkDuplicatesButton;
+function updateUIText() {
+    document.getElementById('title').textContent = locales[currentLocale].title;
+    document.getElementById('subtitle').textContent = locales[currentLocale].subtitle;
+    document.getElementById('infoButtonText').textContent = locales[currentLocale].infoButton;
+    document.getElementById('formatButtonText').textContent = locales[currentLocale].formatButton;
+    document.getElementById('clearButtonText').textContent = locales[currentLocale].clearButton;
+    document.getElementById('checkDuplicatesText').textContent = locales[currentLocale].checkDuplicatesButton;
+    document.getElementById('inputLabel').textContent = locales[currentLocale].inputLabel;
+    document.getElementById('outputLabel').textContent = locales[currentLocale].outputLabel;
+    document.getElementById('howToUseTitle').textContent = locales[currentLocale].howToUseTitle;
+    document.getElementById('whatItDoes').textContent = locales[currentLocale].whatItDoes;
+    document.getElementById('whatItDoesDesc').textContent = locales[currentLocale].whatItDoesDesc;
+    document.getElementById('whenToUse').textContent = locales[currentLocale].whenToUse;
+    document.getElementById('whenToUseDesc').textContent = locales[currentLocale].whenToUseDesc;
+    document.getElementById('howToUseStepsTitle').textContent = locales[currentLocale].howToUseStepsTitle;
+    document.getElementById('fromLabel').textContent = locales[currentLocale].fromLabel;
+    document.getElementById('becomesLabel').textContent = locales[currentLocale].becomesLabel;
+    document.getElementById('closeText').textContent = locales[currentLocale].close;
 
-    // Update steps list
+    // Update How to use steps
     const stepsContainer = document.getElementById('howToUseSteps');
-    stepsContainer.innerHTML = '';
-    texts.howToUseSteps.forEach(step => {
+    stepsContainer.innerHTML = ''; // Clear existing steps
+    locales[currentLocale].howToUseSteps.forEach(step => {
         const li = document.createElement('li');
         li.textContent = step;
         stepsContainer.appendChild(li);
@@ -39,7 +34,7 @@ function updateTexts() {
 // Language selector handler
 document.getElementById('languageSelector').addEventListener('change', (e) => {
     currentLocale = e.target.value;
-    updateTexts();
+    updateUIText();
     // Save preference
     chrome.storage.sync.set({ preferredLanguage: currentLocale });
 });
@@ -49,7 +44,7 @@ chrome.storage.sync.get(['preferredLanguage'], (result) => {
     if (result.preferredLanguage) {
         currentLocale = result.preferredLanguage;
         document.getElementById('languageSelector').value = currentLocale;
-        updateTexts();
+        updateUIText();
     }
 });
 
@@ -126,7 +121,50 @@ function showToast(message) {
     }, 2000);
 }
 
-function checkDuplicates() {
+function showConfirmDialog(message) {
+    return new Promise((resolve) => {
+        const overlay = document.createElement('div');
+        overlay.className = 'popup-overlay';
+        
+        const content = document.createElement('div');
+        content.className = 'popup-content';
+        
+        const title = document.createElement('div');
+        title.className = 'popup-title';
+        title.textContent = message;
+        
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.className = 'popup-buttons';
+        
+        const confirmButton = document.createElement('button');
+        confirmButton.className = 'popup-button confirm';
+        confirmButton.textContent = locales[currentLocale].ok || 'OK';
+        
+        const cancelButton = document.createElement('button');
+        cancelButton.className = 'popup-button cancel';
+        cancelButton.textContent = locales[currentLocale].cancel || 'Cancel';
+        
+        buttonsContainer.appendChild(confirmButton);
+        buttonsContainer.appendChild(cancelButton);
+        
+        content.appendChild(title);
+        content.appendChild(buttonsContainer);
+        overlay.appendChild(content);
+        document.body.appendChild(overlay);
+        
+        confirmButton.addEventListener('click', () => {
+            document.body.removeChild(overlay);
+            resolve(true);
+        });
+        
+        cancelButton.addEventListener('click', () => {
+            document.body.removeChild(overlay);
+            resolve(false);
+        });
+    });
+}
+
+async function checkDuplicates() {
     const inputText = document.getElementById('inputText');
     const lines = inputText.value.split('\n').filter(line => line.trim() !== '');
     const duplicates = new Map();
@@ -153,31 +191,18 @@ function checkDuplicates() {
     }
     
     // Highlight duplicates
-    const textArea = document.getElementById('inputText');
-    const text = textArea.value;
-    const wrapper = document.createElement('div');
-    wrapper.style.position = 'relative';
-    
-    const highlightedText = document.createElement('div');
-    highlightedText.style.whiteSpace = 'pre-wrap';
-    highlightedText.style.position = 'absolute';
-    highlightedText.style.top = '0';
-    highlightedText.style.left = '0';
-    highlightedText.style.pointerEvents = 'none';
-    highlightedText.style.width = '100%';
-    
-    let htmlContent = text;
     duplicateItems.forEach(([value, indices]) => {
-        const escapedValue = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`^${escapedValue}$`, 'gm');
-        htmlContent = htmlContent.replace(regex, `<span class="duplicate-highlight">${value}</span>`);
+        indices.forEach(index => {
+            const start = lines.slice(0, index).join('\n').length + (index > 0 ? 1 : 0);
+            const end = start + value.length;
+            inputText.setSelectionRange(start, end);
+        });
     });
     
-    highlightedText.innerHTML = htmlContent;
-    wrapper.appendChild(highlightedText);
-    
     // Ask user if they want to remove duplicates
-    if (confirm(locales[currentLocale].removeDuplicates || 'Duplicates found. Would you like to remove them?')) {
+    const shouldRemove = await showConfirmDialog(locales[currentLocale].removeDuplicates || 'Duplicates found. Would you like to remove them?');
+    
+    if (shouldRemove) {
         const uniqueLines = Array.from(new Set(lines));
         inputText.value = uniqueLines.join('\n');
         showToast(locales[currentLocale].duplicatesRemoved || 'Duplicates removed');
@@ -200,4 +225,4 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Initial text update
-updateTexts();
+updateUIText();
