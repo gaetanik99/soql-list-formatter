@@ -13,6 +13,7 @@ const locales = {
       howToUseSteps: [
         "Paste your list of values (one per line)",
         "Click 'Format' or use Ctrl+Enter",
+        "Use 'Remove Duplicates' to check and remove duplicate values if needed",
         "Copy the result (Ctrl+C)"
       ],
       example: "Example:",
@@ -27,7 +28,7 @@ const locales = {
       noInputText: "Please enter text to format",
       noCopyText: "No text to copy",
       copiedText: "Text copied!",
-      checkDuplicatesButton: "Check Duplicates",
+      checkDuplicatesButton: "Remove Duplicates",
       noDuplicates: "No duplicates found",
       removeDuplicates: "Duplicates found. Would you like to remove them?",
       duplicatesRemoved: "Duplicates removed"
@@ -45,6 +46,7 @@ const locales = {
       howToUseSteps: [
         "Incolla la tua lista di valori (uno per riga)",
         "Clicca 'Formatta' o usa Ctrl+Enter",
+        "Usa 'Rimuovi Duplicati' per controllare e rimuovere eventuali valori duplicati",
         "Copia il risultato (Ctrl+C)"
       ],
       example: "Esempio:",
@@ -56,10 +58,10 @@ const locales = {
       copyButton: "Copia",
       clearButton: "Pulisci",
       outputLabel: "Risultato formattato:",
-      noInputText: "Inserisci del testo da formattare",
+      noInputText: "Inserisci il testo da formattare",
       noCopyText: "Nessun testo da copiare",
       copiedText: "Testo copiato!",
-      checkDuplicatesButton: "Controlla Duplicati",
+      checkDuplicatesButton: "Rimuovi Duplicati",
       noDuplicates: "Nessun duplicato trovato",
       removeDuplicates: "Trovati dei duplicati. Vuoi rimuoverli?",
       duplicatesRemoved: "Duplicati rimossi"
@@ -77,6 +79,7 @@ const locales = {
       howToUseSteps: [
         "Pega tu lista de valores (uno por línea)",
         "Haz clic en 'Formatear' o usa Ctrl+Enter",
+        "Usa 'Eliminar Duplicados' para verificar y eliminar valores duplicados si es necesario",
         "Copia el resultado (Ctrl+C)"
       ],
       example: "Ejemplo:",
@@ -91,7 +94,7 @@ const locales = {
       noInputText: "Ingresa texto para formatear",
       noCopyText: "No hay texto para copiar",
       copiedText: "¡Texto copiado!",
-      checkDuplicatesButton: "Buscar Duplicados",
+      checkDuplicatesButton: "Eliminar Duplicados",
       noDuplicates: "No se encontraron duplicados",
       removeDuplicates: "Se encontraron duplicados. ¿Quieres eliminarlos?",
       duplicatesRemoved: "Duplicados eliminados"
@@ -109,6 +112,7 @@ const locales = {
       howToUseSteps: [
         "Collez votre liste de valeurs (une par ligne)",
         "Cliquez sur 'Formater' ou utilisez Ctrl+Enter",
+        "Utilisez 'Supprimer Doublons' pour vérifier et supprimer les valeurs en double si nécessaire",
         "Copiez le résultat (Ctrl+C)"
       ],
       example: "Exemple :",
@@ -123,7 +127,7 @@ const locales = {
       noInputText: "Veuillez entrer du texte à formater",
       noCopyText: "Pas de texte à copier",
       copiedText: "Texte copié !",
-      checkDuplicatesButton: "Vérifier les doublons",
+      checkDuplicatesButton: "Supprimer Doublons",
       noDuplicates: "Aucun doublon trouvé",
       removeDuplicates: "Des doublons ont été trouvés. Voulez-vous les supprimer ?",
       duplicatesRemoved: "Doublons supprimés"

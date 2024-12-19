@@ -24,7 +24,7 @@ function updateTexts() {
     document.getElementById('copyButtonText').textContent = texts.copyButton;
     document.getElementById('clearButtonText').textContent = texts.clearButton;
     document.getElementById('outputLabel').textContent = texts.outputLabel;
-    document.getElementById('checkDuplicatesButtonText').textContent = texts.checkDuplicatesButton;
+    document.getElementById('checkDuplicatesText').textContent = texts.checkDuplicatesButton;
 
     // Update steps list
     const stepsContainer = document.getElementById('howToUseSteps');
