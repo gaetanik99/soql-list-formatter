@@ -24,6 +24,7 @@ function updateTexts() {
     document.getElementById('copyButtonText').textContent = texts.copyButton;
     document.getElementById('clearButtonText').textContent = texts.clearButton;
     document.getElementById('outputLabel').textContent = texts.outputLabel;
+    document.getElementById('checkDuplicatesButtonText').textContent = texts.checkDuplicatesButton;
 
     // Update steps list
     const stepsContainer = document.getElementById('howToUseSteps');
@@ -58,6 +59,7 @@ document.getElementById('copyButton').addEventListener('click', copyText);
 document.getElementById('clearButton').addEventListener('click', clearText);
 document.getElementById('infoButton').addEventListener('click', showInfo);
 document.getElementById('closeInfo').addEventListener('click', hideInfo);
+document.getElementById('checkDuplicatesButton').addEventListener('click', checkDuplicates);
 
 function formatText() {
     const inputText = document.getElementById('inputText').value.trim();
@@ -122,6 +124,64 @@ function showToast(message) {
             toast.remove();
         }, 300);
     }, 2000);
+}
+
+function checkDuplicates() {
+    const inputText = document.getElementById('inputText');
+    const lines = inputText.value.split('\n').filter(line => line.trim() !== '');
+    const duplicates = new Map();
+    
+    // Reset previous highlights
+    inputText.value = lines.join('\n');
+    
+    // Find duplicates
+    lines.forEach((line, index) => {
+        if (!duplicates.has(line)) {
+            duplicates.set(line, [index]);
+        } else {
+            duplicates.get(line).push(index);
+        }
+    });
+    
+    // Filter only items with duplicates
+    const duplicateItems = Array.from(duplicates.entries())
+        .filter(([_, indices]) => indices.length > 1);
+    
+    if (duplicateItems.length === 0) {
+        showToast(locales[currentLocale].noDuplicates || 'No duplicates found');
+        return;
+    }
+    
+    // Highlight duplicates
+    const textArea = document.getElementById('inputText');
+    const text = textArea.value;
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    
+    const highlightedText = document.createElement('div');
+    highlightedText.style.whiteSpace = 'pre-wrap';
+    highlightedText.style.position = 'absolute';
+    highlightedText.style.top = '0';
+    highlightedText.style.left = '0';
+    highlightedText.style.pointerEvents = 'none';
+    highlightedText.style.width = '100%';
+    
+    let htmlContent = text;
+    duplicateItems.forEach(([value, indices]) => {
+        const escapedValue = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`^${escapedValue}$`, 'gm');
+        htmlContent = htmlContent.replace(regex, `<span class="duplicate-highlight">${value}</span>`);
+    });
+    
+    highlightedText.innerHTML = htmlContent;
+    wrapper.appendChild(highlightedText);
+    
+    // Ask user if they want to remove duplicates
+    if (confirm(locales[currentLocale].removeDuplicates || 'Duplicates found. Would you like to remove them?')) {
+        const uniqueLines = Array.from(new Set(lines));
+        inputText.value = uniqueLines.join('\n');
+        showToast(locales[currentLocale].duplicatesRemoved || 'Duplicates removed');
+    }
 }
 
 // Keyboard shortcuts

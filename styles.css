@@ -13,18 +13,20 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 12px;
+    gap: 16px;
     max-width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 h1 {
@@ -233,8 +235,8 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex: 1;
     min-height: 0;
+    flex: 1;
 }
 
 label {
@@ -245,50 +247,43 @@ label {
 
 textarea {
     width: 100%;
-    flex: 1;
-    min-height: 120px;
+    height: 100px;
     padding: 12px;
     border: 1px solid #dadce0;
     border-radius: 8px;
-    font-family: 'Courier New', monospace;
     font-size: 14px;
+    line-height: 1.5;
     resize: none;
+    font-family: 'Courier New', monospace;
     background-color: white;
     box-sizing: border-box;
-    overflow-y: auto;
 }
 
 textarea:focus {
     outline: none;
     border-color: #1a73e8;
-    box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
-}
-
-#outputText {
-    background-color: #f8f9fa;
 }
 
 .buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
-    padding: 8px 0;
+    margin: 8px 0;
     flex-shrink: 0;
 }
 
 button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 6px;
     transition: all 0.2s ease;
-    white-space: nowrap;
+    justify-content: center;
+    width: 100%;
 }
 
 .icon {
@@ -298,6 +293,7 @@ button {
 .primary {
     background-color: #1a73e8;
     color: white;
+    border: 1px solid #1a73e8;
 }
 
 .primary:hover {
@@ -307,19 +303,36 @@ button {
 .success {
     background-color: #34a853;
     color: white;
+    border: 1px solid #34a853;
 }
 
 .success:hover {
-    background-color: #2d8544;
+    background-color: #2d8745;
 }
 
 .secondary {
-    background-color: #dadce0;
+    background-color: #f8f9fa;
     color: #3c4043;
+    border: 1px solid #dadce0;
 }
 
 .secondary:hover {
-    background-color: #c0c4c9;
+    background-color: #f1f3f4;
+}
+
+.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.warning:hover {
+    background-color: #ffecb5;
+}
+
+.duplicate-highlight {
+    background-color: #fff3cd;
+    color: #856404;
 }
 
 .toast {

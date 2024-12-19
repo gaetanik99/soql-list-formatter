@@ -26,7 +26,11 @@ const locales = {
       outputLabel: "Formatted result:",
       noInputText: "Please enter text to format",
       noCopyText: "No text to copy",
-      copiedText: "Text copied!"
+      copiedText: "Text copied!",
+      checkDuplicatesButton: "Check Duplicates",
+      noDuplicates: "No duplicates found",
+      removeDuplicates: "Duplicates found. Would you like to remove them?",
+      duplicatesRemoved: "Duplicates removed"
     },
     it: {
       title: "SOQL List Formatter",
@@ -54,7 +58,11 @@ const locales = {
       outputLabel: "Risultato formattato:",
       noInputText: "Inserisci del testo da formattare",
       noCopyText: "Nessun testo da copiare",
-      copiedText: "Testo copiato!"
+      copiedText: "Testo copiato!",
+      checkDuplicatesButton: "Controlla Duplicati",
+      noDuplicates: "Nessun duplicato trovato",
+      removeDuplicates: "Trovati dei duplicati. Vuoi rimuoverli?",
+      duplicatesRemoved: "Duplicati rimossi"
     },
     es: {
       title: "SOQL List Formatter",
@@ -82,7 +90,11 @@ const locales = {
       outputLabel: "Resultado formateado:",
       noInputText: "Ingresa texto para formatear",
       noCopyText: "No hay texto para copiar",
-      copiedText: "¡Texto copiado!"
+      copiedText: "¡Texto copiado!",
+      checkDuplicatesButton: "Buscar Duplicados",
+      noDuplicates: "No se encontraron duplicados",
+      removeDuplicates: "Se encontraron duplicados. ¿Quieres eliminarlos?",
+      duplicatesRemoved: "Duplicados eliminados"
     },
     fr: {
       title: "SOQL List Formatter",
@@ -110,7 +122,11 @@ const locales = {
       outputLabel: "Résultat formaté :",
       noInputText: "Veuillez entrer du texte à formater",
       noCopyText: "Pas de texte à copier",
-      copiedText: "Texte copié !"
+      copiedText: "Texte copié !",
+      checkDuplicatesButton: "Vérifier les doublons",
+      noDuplicates: "Aucun doublon trouvé",
+      removeDuplicates: "Des doublons ont été trouvés. Voulez-vous les supprimer ?",
+      duplicatesRemoved: "Doublons supprimés"
     }
   };
   
