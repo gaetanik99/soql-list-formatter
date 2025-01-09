@@ -50,7 +50,6 @@ chrome.storage.sync.get(['preferredLanguage'], (result) => {
 
 // Rest of the existing functionality
 document.getElementById('formatButton').addEventListener('click', formatText);
-document.getElementById('copyButton').addEventListener('click', copyText);
 document.getElementById('clearButton').addEventListener('click', clearText);
 document.getElementById('infoButton').addEventListener('click', showInfo);
 document.getElementById('closeInfo').addEventListener('click', hideInfo);
@@ -73,21 +72,6 @@ function formatText() {
     // Copia automaticamente il testo formattato negli appunti
     navigator.clipboard.writeText(formattedText).then(() => {
         showToast(locales[currentLocale].copiedText);
-    });
-}
-
-function copyText() {
-    const outputText = document.getElementById('outputText').value;
-    if (!outputText) {
-        showToast(locales[currentLocale].noCopyText);
-        return;
-    }
-
-    navigator.clipboard.writeText(outputText).then(() => {
-        showToast(locales[currentLocale].copiedText);
-        setTimeout(() => {
-            window.close();
-        }, 1000);
     });
 }
 
@@ -219,7 +203,12 @@ document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key === 'Enter') {
         formatText();
     } else if (e.ctrlKey && e.key === 'c' && document.activeElement.id !== 'inputText') {
-        copyText();
+        navigator.clipboard.writeText(document.getElementById('outputText').value).then(() => {
+            showToast(locales[currentLocale].copiedText);
+            setTimeout(() => {
+                window.close();
+            }, 1000);
+        });
     } else if (e.key === 'Escape') {
         if (document.getElementById('infoPanel').classList.contains('show')) {
             hideInfo();
