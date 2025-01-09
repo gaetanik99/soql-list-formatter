@@ -69,6 +69,11 @@ function formatText() {
     
     const formattedText = lines.map(line => `'${line}'`).join(',\n');
     document.getElementById('outputText').value = formattedText;
+    
+    // Copia automaticamente il testo formattato negli appunti
+    navigator.clipboard.writeText(formattedText).then(() => {
+        showToast(locales[currentLocale].copiedText);
+    });
 }
 
 function copyText() {
